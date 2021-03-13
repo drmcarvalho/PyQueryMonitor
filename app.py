@@ -62,17 +62,20 @@ def parserArgs():
         parser.add_argument("--password", default="", help="Senha do banco de dados.")
         parser.add_argument(
             "--port",
+            type=int,
             default=3306,
             help="Porta utilizada para se conectar no banco, padrão 3306.",
         )
         parser.add_argument(
             "--time",
             default=50,
+            type=int,
             help="Especifica o tempo que a query esta executando para que ela possa ser capturada pelo monitor.",
         )
         parser.add_argument(
             "--watch",
             default=5,
+            type=int,
             help="O tempo que o monitor vai executar a cada interação para obter as querys",
         )
         parser.add_argument(
