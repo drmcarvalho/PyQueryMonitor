@@ -93,11 +93,11 @@ def main():
     connection = database(args.user, args.password, args.host, args.port)
     welcome()
     while True:
-        for row in sqlmonitor(connection, time=args.time):
-            if row:
-                viewQuery(row)
+        for sm in sqlmonitor(connection, time=args.time):
+            if sm:
+                viewQuery(sm)
                 if args.discord:
-                    sendDiscord(formatMenssagem(row), args.channel, args.token)
+                    sendDiscord(formatMenssagem(sm), args.channel, args.token)
         sleep(args.watch)
 
 
