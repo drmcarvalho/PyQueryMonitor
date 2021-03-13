@@ -4,7 +4,8 @@
 import argparse
 import sys
 from database import database
-from monitor import sqlmonitor, sendDiscord
+from monitor import sqlmonitor
+from integration import sendDiscord
 from time import sleep
 
 
@@ -26,6 +27,10 @@ ______      _____                      ___  ___            _ _
 def fatal(error):
     print(error)
     sys.exit(1)
+
+
+def warning(text):
+    print('\033[93m' + text + '\033[0m')
 
 
 def formatMenssagem(row):
@@ -97,10 +102,13 @@ def main():
     welcome()
     while True:
         for sm in sqlmonitor(connection, time=opt.time):
-            if sm:
-                viewQuery(sm)
-                if opt.discord:
-                    sendDiscord(formatMenssagem(sm), opt.channel, opt.token)
+            if not sm:
+                continue
+            viewQuery(sm)
+            if opt.discord:
+                ok = sendDiscord(formatMenssagem(sm), opt.channel, opt.token)
+                if not ok:
+                    warning('Aviso: não foi possível integrar com o discord.')
         sleep(opt.watch)
 
 

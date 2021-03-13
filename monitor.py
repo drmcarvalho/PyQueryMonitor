@@ -1,5 +1,4 @@
 from database import _query
-import requests
 
 
 def sqlmonitor(connection, time='30'):
@@ -14,8 +13,3 @@ def sqlmonitor(connection, time='30'):
             command <> 'Sleep' AND time >= %s;""",
         params=[time],
     )
-
-
-def sendDiscord(mensagem, channelId, token):
-    result = requests.post(f'https://discord.com/api/webhooks/{channelId}/{token}', data={'content': mensagem})
-    return result.status_code == 200
