@@ -31,8 +31,8 @@ Opções:
 
 ```
 usage: app.py [-h] [--host HOST] [--user USER] [--password PASSWORD]
-              [--port PORT] [--time TIME] [--watch WATCH] [--discord DISCORD]
-              [--channel CHANNEL] [--token TOKEN]
+              [--port PORT] [--time TIME] [--interval INTERVAL]
+              [--discord DISCORD] [--channel CHANNEL] [--token TOKEN]
 
 PyQueryMonitor ferramenta para monitoramento de consultas SQL
 
@@ -46,9 +46,9 @@ optional arguments:
   --port PORT          Porta utilizada para se conectar no banco, padrão 3306.
   --time TIME          Especifica o tempo que a query esta executando para que
                        ela possa ser capturada pelo monitor.
-  --watch WATCH        O tempo que o monitor vai executar para obter os
+  --interval INTERVAL  O intervalo que o monitor vai executar para obter os
                        processos das consultas que estão demorando. Exemplo:
-                       se definir 5 segundos, ele vai verrificar os processos
+                       se definir 5 segundos, ele vai verificar os processos
                        das consultadas a cada 5 segundos.
   --discord DISCORD    Opção para determinar se vai usar o Discord como log.
   --channel CHANNEL    Id do webhook do Discord.
