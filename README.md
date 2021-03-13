@@ -57,6 +57,18 @@ Vamos começar com um monitoramento basico:
 
 `python app.py --user root --password minha_senha`
 
-Você também pode especificar servidores remotos utilizando a opção `host` para monitorar.
+Você também pode especificar servidores remotos utilizando a opção `host` para monitorar. Segue um exemplo de saída:
 
+```
+Process id: 12345678
+User: user
+Host: 127.0.0.1:0000
+DB: database
+Time: 10
+State: Sending data
+Info:
+SELECT conteudo FROM posts WHERE autor like '%fulano%'
+```
+
+A ferramenta possui integração com webhook do Discord.
 
