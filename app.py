@@ -81,7 +81,7 @@ def options():
             "--watch",
             default=5,
             type=int,
-            help="O tempo que o monitor vai executar a cada interação para obter as querys",
+            help="O tempo que o monitor vai executar para obter os processos das consultas que estão demorando. Exemplo: se definir 5 segundos, ele vai verrificar os processos das consultadas a cada 5 segundos.",
         )
         parser.add_argument(
             "--discord",
