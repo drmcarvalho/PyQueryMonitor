@@ -78,10 +78,10 @@ def options():
             help="Especifica o tempo que a query esta executando para que ela possa ser capturada pelo monitor.",
         )
         parser.add_argument(
-            "--watch",
+            "--interval",
             default=5,
             type=int,
-            help="O tempo que o monitor vai executar para obter os processos das consultas que estão demorando. Exemplo: se definir 5 segundos, ele vai verrificar os processos das consultadas a cada 5 segundos.",
+            help="O intervalo que o monitor vai executar para obter os processos das consultas que estão demorando. Exemplo: se definir 5 segundos, ele vai verificar os processos das consultadas a cada 5 segundos.",
         )
         parser.add_argument(
             "--discord",
@@ -109,7 +109,7 @@ def main():
                 ok = sendDiscord(formatMenssagem(sm), opt.channel, opt.token)
                 if not ok:
                     warning('Aviso: não foi possível integrar com o discord.')
-        sleep(opt.watch)
+        sleep(opt.interval)
 
 
 if __name__ == "__main__":
