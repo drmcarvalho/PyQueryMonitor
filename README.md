@@ -1,6 +1,8 @@
 # PyQueryMonitor
 Ferramento para monitoramento de consultas lentas em SQL
 
+> Atualmente só possue suporte para MySQL, futuramente sera adicionado para outros SGBDs
+
 # Instalação
 
 Clone o repositório para sua maquina:
