@@ -44,7 +44,7 @@ def viewQuery(row):
     print(formatMenssagem(row))
 
 
-def parserArgs():
+def options():
     try:
         parser = argparse.ArgumentParser(
             description="PyQueryMonitor ferramenta para monitoramento de consultas SQL"
@@ -92,16 +92,16 @@ def parserArgs():
 
 
 def main():
-    args = parserArgs()
-    connection = database(args.user, args.password, args.host, args.port)
+    opt = options()
+    connection = database(opt.user, opt.password, opt.host, opt.port)
     welcome()
     while True:
-        for sm in sqlmonitor(connection, time=args.time):
+        for sm in sqlmonitor(connection, time=opt.time):
             if sm:
                 viewQuery(sm)
-                if args.discord:
-                    sendDiscord(formatMenssagem(sm), args.channel, args.token)
-        sleep(args.watch)
+                if opt.discord:
+                    sendDiscord(formatMenssagem(sm), opt.channel, opt.token)
+        sleep(opt.watch)
 
 
 if __name__ == "__main__":
