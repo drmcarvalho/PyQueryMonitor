@@ -46,14 +46,24 @@ def viewQuery(row):
 
 def parserArgs():
     try:
-        parser = argparse.ArgumentParser(description="PyQueryMonitor ferramenta para monitoramento de consultas SQL")
-        parser.add_argument(
-            "--host", default="localhost", help="Endereço do servidor de banco de dados e o valor padrão é o localhost."
+        parser = argparse.ArgumentParser(
+            description="PyQueryMonitor ferramenta para monitoramento de consultas SQL"
         )
-        parser.add_argument("--user", default="root", help="Usuário que vai utilizar para fazer o monitoramento, sendo o valor padrão root.")
+        parser.add_argument(
+            "--host",
+            default="localhost",
+            help="Endereço do servidor de banco de dados e o valor padrão é o localhost.",
+        )
+        parser.add_argument(
+            "--user",
+            default="root",
+            help="Usuário que vai utilizar para fazer o monitoramento, sendo o valor padrão root.",
+        )
         parser.add_argument("--password", default="", help="Senha do banco de dados.")
         parser.add_argument(
-            "--port", default=3306, help="Porta utilizada para se conectar no banco, padrão 3306."
+            "--port",
+            default=3306,
+            help="Porta utilizada para se conectar no banco, padrão 3306.",
         )
         parser.add_argument(
             "--time",
@@ -70,8 +80,8 @@ def parserArgs():
             default=False,
             help="Opção para determinar se vai usar o Discord como log.",
         )
-        parser.add_argument("--channel", help="Id do webhook do Discord.")
-        parser.add_argument("--token", help="Token do canal do webhook do Discord.")
+        parser.add_argument("--channel", default=None, help="Id do webhook do Discord.")
+        parser.add_argument("--token", default=None, help="Token do canal do webhook do Discord.")
         args = parser.parse_args()
         return args
     except (argparse.ArgumentError, argparse.ArgumentTypeError) as error:
